@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/ofe_auswertung" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>

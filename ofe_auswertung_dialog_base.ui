@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OFEAuswertungDialogBase</class>
+ <widget class="QDialog" name="OFEAuswertungDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1082</width>
+    <height>816</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>OFE Auswertung</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1071</width>
+     <height>811</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab_auswahl">
+    <attribute name="title">
+     <string>Auswahl Daten</string>
+    </attribute>
+    <widget class="QgsMapLayerComboBox" name="datenMapLayerComboBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>261</width>
+       <height>27</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>261</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Wählen Sie den Datensatz für die Auswertung aus</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>271</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Wählen Sie die Zielgröße aus</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>190</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Faktoren</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>250</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Faktor 1</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_Faktor2">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>310</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Faktor 2</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>281</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Wählen Sie den Blockfaktor/Wiederholung aus</string>
+     </property>
+    </widget>
+    <widget class="QgsFieldComboBox" name="zielFieldComboBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>261</width>
+       <height>27</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="dsPushButton">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>30</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bestätigen</string>
+     </property>
+    </widget>
+    <widget class="QgsFieldComboBox" name="whFieldComboBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>150</y>
+       <width>261</width>
+       <height>27</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="zielPushButton">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>90</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bestätigen</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="whPushButton">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>150</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bestätigen</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="faktorComboBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>210</y>
+       <width>261</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QgsFieldComboBox" name="faktor1FieldComboBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>270</y>
+       <width>261</width>
+       <height>27</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QgsFieldComboBox" name="faktor2FieldComboBox">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>261</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="faktorPushButton">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>210</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bestätigen</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="faktor1Button">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>270</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bestätigen</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="faktor2Button">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>330</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bestätigen</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="dsLabel">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>30</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>nicht ausgewählt</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="zielLabel">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>90</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>nicht ausgewählt</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="whLabel">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>150</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>nicht ausgewählt</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="faktorLabel">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>210</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>nicht ausgewählt</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="faktor1Label">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>270</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>nicht ausgewählt</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="faktor2Label">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>330</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>nicht ausgewählt</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="auswahlPushButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>380</y>
+       <width>200</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Weiter zur Bestandsaufnahme</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_deskriptiv">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <attribute name="title">
+     <string>Bestandsaufnahme/deskriptive Statistik</string>
+    </attribute>
+    <widget class="QGraphicsView" name="deskrGraphicsView">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>280</y>
+       <width>1061</width>
+       <height>471</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="deskrTableWidget">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>10</y>
+       <width>621</width>
+       <height>261</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="textBrowser">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>431</width>
+       <height>261</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #e0e0e0;
+color: #000000;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Panel</enum>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px; line-height:138%; background-color:transparent;&quot;&gt;&lt;a name=&quot;docs-internal-guid-cbbfc80a-7fff-073a-0de8-208cc65265d3&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; color:#1f1f1f;&quot;&gt;i&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; color:#1f1f1f;&quot;&gt;tem / vars&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f;&quot;&gt;: Die Nummer der Variablen.&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;n&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt;: Die Anzahl der gültigen Werte (Stichprobengröße pro Gruppe).&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;mean&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt;: Der Mittelwert (arithmetisches Mittel).&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;sd&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt;: Die Standardabweichung (Streuung der Werte).&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;median&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt;: Der Median (der genau mittlere Wert).&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;trimmed&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt;: Das getrimmte Mittel (Standard: die äußeren 10% der Werte werden ignoriert, um Ausreißer abzufedern).&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;mad&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt;: Die mittlere absolute Abweichung (ein robusteres Streuungsmaß als die Standardabweichung).&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;min / max&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt;: Der kleinste und größte Wert.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;range&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt;: Die Spannweite (max minus min).&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;skew / kurtosis&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt;: zwischen -1 und +1 sind die Daten annähernd normalverteilt.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;se&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt;: Der Standardfehler des Mittelwerts.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="deskriptivPushButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>755</y>
+       <width>200</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string> Weiter zur Versuchsauswertung</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_auswertung">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <attribute name="title">
+     <string>Versuchsauswertung/schliessende Statistik</string>
+    </attribute>
+    <widget class="QTextBrowser" name="textBrowser_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>110</y>
+       <width>1061</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #e0e0e0;
+color: #000000;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Panel</enum>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; font-family:'Courier New'; font-size:11pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;a name=&quot;docs-internal-guid-07323649-7fff-8b98-11b6-40e2c39901d7&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; color:#1f1f1f;&quot;&gt;e&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; color:#1f1f1f;&quot;&gt;stimate&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f;&quot;&gt; -&amp;gt;&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; color:#1f1f1f;&quot;&gt; Difference:&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f;&quot;&gt; Die tatsächliche Differenz der Mittelwerte zwischen den beiden Gruppen ($\bar{X}_B - \bar{X}_A$). Ein positiver Wert bedeutet, dass die erstgenannte Gruppe (B) einen höheren Mittelwert hat als die zweitgenannte (A).&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;conf.low  (Lower bound):&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt; Die untere Grenze des 95%-Konfidenzintervalls für diese Differenz.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;conf.high  (Upper bound):&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt; Die obere Grenze des 95%-Konfidenzintervalls für diese Differenz.&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Courier New'; font-size:8pt; color:#000000; background-color:transparent;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-weight:704; color:#1f1f1f;&quot;&gt;adj.p.value (Adjusted p-value):&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; color:#1f1f1f;&quot;&gt; Der für multiples Testen korrigierte p-Wert. Liegt p adj unter deinem Signifikanzniveau (meist 0.05), ist der Unterschied statistisch absichert.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt;Wichtig sind die Spalten&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; color:#1f1f1f; background-color:transparent;&quot;&gt; conf.low &lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt;und &lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; color:#1f1f1f; background-color:transparent;&quot;&gt;conf.high&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt;. Wenn das Intervall von minus nach plus wechselt (also die &lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; color:#1f1f1f; background-color:transparent;&quot;&gt;Null&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt; einschließt, wie z.B. von -1.2 bis +3.4), gibt es &lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; font-style:italic; color:#1f1f1f; background-color:transparent;&quot;&gt;keinen&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt; signifikanten Unterschied. Die Spalte &lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; color:#1f1f1f; background-color:transparent;&quot;&gt;adj.p.value&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt; wird dann größer als 0.05 sein. Schließt das Intervall die Null nicht ein (wie in den Beispielen oben), ist der Unterschied signifikant&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:11pt; color:#1f1f1f; background-color:transparent;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="tukeyHSDTableWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>1061</width>
+       <height>81</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Varianzanalyse</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>270</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Grenzdifferenz</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="comparisonLSDTableWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>290</y>
+       <width>1061</width>
+       <height>101</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="textBrowser_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>400</y>
+       <width>1061</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #e0e0e0;
+color: #000000;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Panel</enum>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;a name=&quot;docs-internal-guid-399596df-7fff-12b0-5bd1-5af297d7fa2a&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt;I&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt;n dieser Tabelle (wenn group = FALSE oder unbalanciert) gibt es für jedes Paar die Spalten &lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; color:#1f1f1f; background-color:transparent;&quot;&gt;LCL&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt; (Lower Confidence Limit) und &lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; color:#1f1f1f; background-color:transparent;&quot;&gt;UCL&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt; (Upper Confidence Limit).&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:704; color:#1f1f1f; background-color:transparent;&quot;&gt;Praxis-Tipp zum Ablesen:&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt; Die Differenz, ab der ein Paar signifikant wird (deine kriterienbezogene Grenzdifferenz für dieses Paar), entspricht genau dem Wert, den du von der echten Differenz abziehen oder dazuzählen musst, um auf die Konfidenzgrenzen zu kommen:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:600; color:#1f1f1f; background-color:transparent;&quot;&gt;Grenzdifferenz für dieses Paar = difference - LCL&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="textBrowser_4">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>730</y>
+       <width>1061</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #e0e0e0;
+color: #000000;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Panel</enum>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;a name=&quot;docs-internal-guid-862f6399-7fff-acab-b4c3-e9026a3006b6&quot;&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt;T&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt;eilen sich zwei Gruppen mindestens &lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:600; color:#1f1f1f; background-color:transparent;&quot;&gt;einen gemeinsamen Buchstaben&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt;, gibt es zwischen ihnen &lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:600; color:#1f1f1f; background-color:transparent;&quot;&gt;keinen&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt; statistisch signifikanten Unterschied.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:138%;&quot;&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt;Haben zwei Gruppen&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:600; color:#1f1f1f; background-color:transparent;&quot;&gt; komplett unterschiedliche Buchstaben&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt;,&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; font-weight:600; color:#1f1f1f; background-color:transparent;&quot;&gt; ist der Unterschied statistisch abgesicher&lt;/span&gt;&lt;span style=&quot; font-family:'Google Sans','sans-serif'; font-size:8pt; color:#1f1f1f; background-color:transparent;&quot;&gt;t.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="groupsLSDTableWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>530</y>
+       <width>1061</width>
+       <height>191</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>510</y>
+       <width>181</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Endergebnis (Compact Letter Display)</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QgsFieldComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgsfieldcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QgsMapLayerComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgsmaplayercombobox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
