@@ -13,6 +13,62 @@ Dies ist eine frühe Version (Minimum Viable Product) des Projekts. Die Kernfunk
 Zur praktischen Anwendung, nach dem Aufruf des Plugins müssen die auszuwertenden Daten definiert werden. Jede einzelne Auswahl muss jeweils mit „Bestätigen“ übernommen werden, danach sind die nächsten Eingaben möglich.
 Nötige Eingaben sind (in der Reihenfolge): Datensatz, Zielgröße, Blockfaktor/Wiederholung, Anzahl der Faktoren (1 oder 2) sowie der konkrete Faktor 1 oder wenn gewünscht Faktor 2.
 
+Nach Abschluss der Datenauswahl dann auf den Button „Weiter zur Bestandsaufnahme“ drücken. 
+Dabei werden in einem ersten Schritt die Daten visualisiert und beschrieben. Zum einen die Kennzahlen wie die Berechnung der Mittelwerte, der Standardabweichungen und der Konfidenzintervallen, wie auch der Boxplots und Streudiagramme zur Identifikation von Ausreißern und Trends.
+In der anschließenden eigentlichen Auswertung wird das mathematische Herzstück der Versuchsauswertung umgesetzt. Mittels der Varianzanalyse (ANOVA) wird geprüft, ob sich die Mittelwerte mehrerer Gruppen (Behandlungen) statistisch signifikant voneinander unterscheiden. Das Prinzip ist die Zerlegung der Gesamtvariabilität (Gesamtvarianz) der Messdaten in zwei Anteile:
+- Varianz zwischen den Gruppen: Der Anteil, der durch die unterschiedlichen Behandlungen erklärt werden kann (Signal).
+- Varianz innerhalb der Gruppen (Residualvarianz/Fehler): Der Anteil, der durch Zufall oder unkontrollierte Faktoren entsteht (Rauschen).
+Der F-Test berechnet dann das Verhältnis von Signal zu Rauschen. Ist das Signal deutlich größer als das Rauschen, liefert die ANOVA ein signifikantes Ergebnis (p < 0,05). Das bedeutet: Mindestens zwei Gruppen unterscheiden sich voneinander. 
+Die ANOVA sagt uns dass es einen Unterschied gibt, aber nicht, zwischen welchen Gruppen. Hier setzen Post-Hoc-Tests an:
+- Tukey-HSD (Honestly Significant Difference): Der Standardtest. Er vergleicht alle Paare miteinander und korrigiert den Fehler für multiples Testen, um Scheinsignifikanzen zu vermeiden.
+- Fisher’s LSD (Least Significant Difference): Sehr trennscharf, birgt aber bei vielen Gruppen ein hohes Risiko für falsch-positive Ergebnisse.
+Hier wird die deskriptive Statistik der gewählten Daten angezeigt, die Erklärung der der in der Tabelle dargestellten Daten wird links daneben angezeigt. Darunter erfolgt die grafische Darstellung in Form eines Boxplots.
+Hier ist die Bedeutung der einzelnen Spalten erklärt:
+Basis-Informationen
+- item: Die fortlaufende Nummer der untersuchten Variable.
+- vars: Die Nummer der Variable in Ihrem Datensatz.
+- n: Die Anzahl der gültigen Messwerte in dieser Gruppe (ohne fehlende Werte).
+Zentrale Maße (Wo liegt die Mitte?)
+- mean: Der klassische Mittelwert (Durchschnitt) aller Werte.
+- median: Der genau in der Mitte liegende Wert. Teilt man die Daten nach Größe auf, liegen 50 % darüber und 50 % darunter.
+- trimmed: Der gestutzte Mittelwert. Hierbei werden die extremsten Werte (meist die oberen und unteren 10 %) ignoriert, um Ausreißer auszublenden.
+Streuung (Wie weit weichen die Werte ab?)
+- sd: Die Standardabweichung. Sie zeigt, wie stark die einzelnen Werte um den Mittelwert herum schwanken. Ein hoher Wert bedeutet große Unterschiede zwischen den Datenpunkten.
+- mad: Die mittlere absolute Abweichung vom Median. Ein robustes Maß für die Streuung, das unempfindlicher gegen extreme Ausreißer ist als die Standardabweichung.
+Extremwerte & Spanne
+- min: Der kleinste gemessene Wert in der Gruppe.
+- max: Der größte gemessene Wert in der Gruppe.
+- range: Die Spannweite. Das ist der Abstand zwischen dem kleinsten und dem größten Wert (also max minus min).
+Verteilung & Genauigkeit
+- skew: Die Schiefe. Sie zeigt, ob die Daten symmetrisch verteilt sind. Ein Wert nahe 0 bedeutet eine perfekte Glockenkurve. Ein positiver Wert zeigt, dass es wenige, aber sehr hohe Werte gibt (rechtsschief).
+- kurtosis: Die Wölbung (Steilheit) der Verteilung. Sie beschreibt, ob die Datenverteilung im Vergleich zur Normalverteilung eher flach oder spitz zuläuft.
+- se: Der Standardfehler des Mittelwerts. Er gibt an, wie präzise der berechnete Mittelwert den wahren Mittelwert der Grundgesamtheit schätzt. Je kleiner se, desto genauer ist die Schätzung.
+Hier ein kurzer fachlicher Diskurs - die in dieser Erweiterung bereitgestellten Methoden stellen den wissenschaftlichen Standard in der Versuchsauswertung da. Allerdings variieren bei größeren Versuchsflächen die Faktoren wie Boden, Nährstoff- und Wassernachlieferung, Mikroklima usw. und das eher zufällig. Die klassischen Versuchsdesignregeln wie Wiederholungen und Randomisierung, die die Einflüsse dieser Faktoren verhindern sollen, bringen hier nur teilweise Erfolg.
+Wenn eine Auswertung unter Berücksichtigung dieser Faktoren gewünscht wird müssen diese  erfasst und ihre Einflüsse auf das Ergebnis berücksichtigt werden (Störgrößen).
+Hilfreich dafür sind hoch aufgelöste georeferenzierte Daten (Relief-, Nährstoff-, Bodenqualitäts-, Bodenfeuchte-, Biomasse- usw. Karten). Die Wirkungen dieser Störgrößen können dann in die Auswertung der Versuche berücksichtigt werden. In der statistischen Auswertung werden die Einflüsse der Störgrößen auf die Zielvariable bestimmt, in der Analyse wird errechnet, ob es signifikante Einflüsse auf die Zielvariable gibt. 
+Im Gegensatz zum normalen Versuch ist die statistische Auswertung allerdings komplexer. Die EXAgT hat dazu das geostatistisches Auswertungsprogramm PiGSTAT (Statistische Analyse von produktionsintegrierten Großparzellenversuchen mit R),  in Betrieb, im OFE Auswertungsmodul existiert eine Anbindung an diese Software. 
+
+Im Anschluss an der deskriptiven Statistik geht weiter zur finalen Versuchsauswertung über die dementsprechende Schaltfläche oder optional zur Statistik der  EXAgT, PiGSTAT.
+Zuerst wird ein Tukey-HSD Test berechnet (oberes Drittel des Bildschirms), nachfolgend die Bedeutung der einzelnen Spalten:
+- term: Name der Einflussvariable (des Faktors), der untersucht wurde.
+- contrast: welche Gruppen R werden gerade miteinander verglichen.
+- estimate: der Unterschied zwischen den Gruppen-Mittelwerten.
+- conf.low und conf.high: Untergrenze und Obergrenze der Unterschiede (95% Konfidenzintervall)
+- adj.p.value: Das ist der mathematisch korrigierte p-Wert. 
+.p-Wert kleiner als 0,05 (z. B. 0.002): SIGNIFIKANT. Die Chance für einen Zufall liegt bei unter 5 %. Der Unterschied ist statistisch Hand und Fuß. In wissenschaftlichen Arbeiten bekommt dieses Paar ein Sternchen (*).
+.p-Wert größer als 0,05 (z. B. 0.650): NICHT SIGNIFIKANT. Die Wahrscheinlichkeit für Zufall ist viel zu hoch. Statistisch gesehen sind diese beiden Gruppen als gleich anzusehen, auch wenn sich die nackten Mittelwerte unterscheiden.
+Im mittleren Teil des Ausgabebildschirms wird die Grenzdifferenz berechnet:
+- difference: Der reale Unterschied der Mittelwerte.
+- pvalue: Der p-Wert für dieses Paar. Ist er kleiner als 0.05, ist der Unterschied zwischen diesen beiden Gruppen statistisch bewiesen
+- signif: Sternchen zeigen das „Urteil“ des Tests, Sternchen zeigen einen erfolgreichen Test an.
+- LCL und UCL: R berechnet den nackten Unterschied zwischen zwei Gruppen (die Spalte difference). Weil kein Versuch perfekt ist, gibt R Ihnen mit LCL und UCL einen Von-Bis-Bereich (eine Spanne) mit:LCL: Der kleinstmögliche Unterschied, den man in der Realität erwarten kann.UCL: Der größtmögliche Unterschied, den man in der Realität erwarten kann.
+Im unteren Drittel nochmal die Ausgabe der Auswertung im verständlichen „Compact Letter Design“ als Standard für die Darstellung in Versuchsberichten:
+- Alle Gruppen werden nach ihrem Mittelwert sortiert.
+- Der Algorithmus beginnt bei der höchsten Gruppe und gibt ihr den Buchstaben a.
+- Er prüft die nächste Gruppe: Unterscheidet sie sich nicht von der ersten, bekommt sie auch das a.
+- Sobald eine Gruppe gefunden wird, die sich signifikant unterscheidet, wird ein neuer Buchstabe (b) angefangen.
+- Gruppen, die statistisch zu beiden Bereichen gehören könnten, erhalten beide Buchstaben (z. B. ab).
+
 
 ## 🧩 Installation
 toDo
